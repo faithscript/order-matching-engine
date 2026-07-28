@@ -14,8 +14,7 @@ using Price = std::int64_t;
 
 enum class Side { Buy, Sell };
 
-enum class RejectReason 
-{
+enum class RejectReason {
     InvalidPrice,
     InvalidQuantity,
     UnknownSymbol,
@@ -23,12 +22,17 @@ enum class RejectReason
     DuplicateOrderId,
 };
 
-struct OrderAdded
+struct NewOrderRequest
 {
     OrderId  order_id;
     Side     side;
     Price    price;
     Quantity quantity;
+};
+
+struct OrderAdded
+{
+    NewOrderRequest request;
 };
 
 struct OrderCancelled
@@ -52,11 +56,8 @@ struct Trade
 
 struct OrderRejected
 {
-    OrderId      order_id;
-    Side         side;
-    Price        price;
-    Quantity     quantity;
-    RejectReason reason;
+    NewOrderRequest request;
+    RejectReason    reason;
 };
 
 struct Event
@@ -65,4 +66,4 @@ struct Event
     std::variant<OrderAdded, OrderCancelled, OrderModified, Trade, OrderRejected> payload;
 };
 
-} 
+}  
