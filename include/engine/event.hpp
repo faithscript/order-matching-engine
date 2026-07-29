@@ -22,6 +22,7 @@ enum class RejectReason {
     DuplicateOrderId,
 };
 
+// what a client asked for, separate from whether it got accepted
 struct NewOrderRequest
 {
     OrderId  order_id;
@@ -30,6 +31,7 @@ struct NewOrderRequest
     Quantity quantity;
 };
 
+// request that got accepted
 struct OrderAdded
 {
     NewOrderRequest request;
@@ -54,6 +56,7 @@ struct Trade
     Quantity quantity;
 };
 
+// request that got declined, plus why
 struct OrderRejected
 {
     NewOrderRequest request;
@@ -66,4 +69,4 @@ struct Event
     std::variant<OrderAdded, OrderCancelled, OrderModified, Trade, OrderRejected> payload;
 };
 
-}  
+}  // namespace engine
