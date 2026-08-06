@@ -1,6 +1,6 @@
 # order-matching-engine
  
-An exchange matching engine with an event-sourced core and real FIX protocol connectivity, built in progressive layers from single-threaded correctness up through concurrency and market data distribution.
+An exchange matching engine with an event-sourced core and FIX protocol connectivity, built in progressive layers from single-threaded correctness up through concurrency and market data distribution.
  
 **Status:** Remaining layers are done; repository history is being cleaned up prior to push.
  
@@ -11,7 +11,7 @@ An exchange matching engine with an event-sourced core and real FIX protocol con
 | Layer | Description | Status |
 | --- | --- | --- |
 | 0 — Core | Event-sourced, single-threaded matching engine | Pushed |
-| 1 — FIX Protocol | Real FIX tag=value connectivity over sockets | Not yet pushed |
+| 1 — FIX Protocol | FIX tag=value connectivity over sockets | Not yet pushed |
 | 2 — Memory & Speed | Low-latency data structures and allocation | Not yet pushed |
 | 3 — Concurrency | Lock-free, multi-threaded pipeline | Not yet pushed |
 | 4 — Market Data | UDP multicast market data distribution | Not yet pushed |
