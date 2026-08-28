@@ -1,4 +1,5 @@
 #include "../include/engine/book.hpp"
+#include "../include/engine/fix.hpp"
 #include <algorithm>
 #include <cassert>
 
@@ -62,6 +63,27 @@ std::vector<Event> Book::on_event(const Event& event)
     EventVisitor visitor{*this, event.seq, new_events};
     std::visit(visitor, event.payload);
     return new_events;
+}
+
+std::vector<Event> Book::apply_fix(const std::variant<NewOrderSingle, OrderCancelRequest>& msg) {
+    std::vector<Event> result;
+    std::visit([&](auto&& m) {
+        using T = std::decay_t<decltype(m)>;
+        if constexpr (std::is_same_v<T, NewOrderSingle>) {
+            OrderAdded added{NewOrderRequest{m.order_id, m.side, m.price, m.quantity}};
+            Event ev = sequencer_.sequence(added);
+            result.push_back(ev);
+            auto more = on_event(ev);
+            result.insert(result.end(), more.begin(), more.end());
+        } else if constexpr (std::is_same_v<T, OrderCancelRequest>) {
+            OrderCancelled cancelled{m.order_id};
+            Event ev = sequencer_.sequence(cancelled);
+            result.push_back(ev);
+            auto more = on_event(ev);
+            result.insert(result.end(), more.begin(), more.end());
+        }
+    }, msg);
+    return result;
 }
 
 // validation plus the matching loop
