@@ -1,10 +1,14 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/book.cpp.o"
   "CMakeFiles/main.dir/src/book.cpp.o.d"
+  "CMakeFiles/main.dir/src/fix.cpp.o"
+  "CMakeFiles/main.dir/src/fix.cpp.o.d"
   "CMakeFiles/main.dir/src/main.cpp.o"
   "CMakeFiles/main.dir/src/main.cpp.o.d"
   "CMakeFiles/main.dir/src/sequencer.cpp.o"
   "CMakeFiles/main.dir/src/sequencer.cpp.o.d"
+  "CMakeFiles/main.dir/src/socket.cpp.o"
+  "CMakeFiles/main.dir/src/socket.cpp.o.d"
   "main"
   "main.pdb"
 )

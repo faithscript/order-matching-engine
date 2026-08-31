@@ -8,12 +8,25 @@ add_executable(main
     src/main.cpp
     src/book.cpp
     src/sequencer.cpp
+    src/fix.cpp
+    src/socket.cpp
 )
+
 target_include_directories(main PRIVATE include)
 
 add_executable(test_replay
     tests/test_replay.cpp
     src/book.cpp
     src/sequencer.cpp
+    src/fix.cpp
+    src/socket.cpp
 )
+
 target_include_directories(test_replay PRIVATE include)
+
+add_executable(test_fix
+    tests/test_fix.cpp
+    src/fix.cpp
+)
+
+target_include_directories(test_fix PRIVATE include)

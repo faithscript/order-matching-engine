@@ -2,6 +2,7 @@
 
 #include "event.hpp"
 #include "fix.hpp"
+
 #include "order.hpp"
 #include "sequencer.hpp"
 
@@ -24,7 +25,7 @@ class Book
 public:
     // borrows the sequencer, doesn't own it
     explicit Book(Sequencer& sequencer) : sequencer_(sequencer) {}
-    std::vector<Event> apply_fix(const std::variant<NewOrderSingle, OrderCancelRequest>& msg);
+    std::vector<Event> apply_fix(const std::variant<NewOrderSingle, OrderCancelRequest, Reject>& msg);
 
     // feed in an event, get back any new events it produced
     std::vector<Event> on_event(const Event& event);

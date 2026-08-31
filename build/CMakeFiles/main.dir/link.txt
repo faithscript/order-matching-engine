@@ -1,1 +1,1 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/book.cpp.o CMakeFiles/main.dir/src/sequencer.cpp.o -o main
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/book.cpp.o CMakeFiles/main.dir/src/sequencer.cpp.o CMakeFiles/main.dir/src/fix.cpp.o CMakeFiles/main.dir/src/socket.cpp.o -o main

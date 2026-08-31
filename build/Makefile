@@ -142,6 +142,19 @@ test_replay/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/build
 .PHONY : test_replay/fast
 
+#=============================================================================
+# Target rules for targets named test_fix
+
+# Build rule for target.
+test_fix: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_fix
+.PHONY : test_fix
+
+# fast build rule for target.
+test_fix/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/build
+.PHONY : test_fix/fast
+
 src/book.o: src/book.cpp.o
 .PHONY : src/book.o
 
@@ -168,6 +181,36 @@ src/book.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/book.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/book.cpp.s
 .PHONY : src/book.cpp.s
+
+src/fix.o: src/fix.cpp.o
+.PHONY : src/fix.o
+
+# target to build an object file
+src/fix.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/fix.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/fix.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/fix.cpp.o
+.PHONY : src/fix.cpp.o
+
+src/fix.i: src/fix.cpp.i
+.PHONY : src/fix.i
+
+# target to preprocess a source file
+src/fix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/fix.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/fix.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/fix.cpp.i
+.PHONY : src/fix.cpp.i
+
+src/fix.s: src/fix.cpp.s
+.PHONY : src/fix.s
+
+# target to generate assembly for a file
+src/fix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/fix.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/fix.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/fix.cpp.s
+.PHONY : src/fix.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -220,6 +263,57 @@ src/sequencer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/sequencer.cpp.s
 .PHONY : src/sequencer.cpp.s
 
+src/socket.o: src/socket.cpp.o
+.PHONY : src/socket.o
+
+# target to build an object file
+src/socket.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/socket.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/socket.cpp.o
+.PHONY : src/socket.cpp.o
+
+src/socket.i: src/socket.cpp.i
+.PHONY : src/socket.i
+
+# target to preprocess a source file
+src/socket.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/socket.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/socket.cpp.i
+.PHONY : src/socket.cpp.i
+
+src/socket.s: src/socket.cpp.s
+.PHONY : src/socket.s
+
+# target to generate assembly for a file
+src/socket.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/socket.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_replay.dir/build.make CMakeFiles/test_replay.dir/src/socket.cpp.s
+.PHONY : src/socket.cpp.s
+
+tests/test_fix.o: tests/test_fix.cpp.o
+.PHONY : tests/test_fix.o
+
+# target to build an object file
+tests/test_fix.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/tests/test_fix.cpp.o
+.PHONY : tests/test_fix.cpp.o
+
+tests/test_fix.i: tests/test_fix.cpp.i
+.PHONY : tests/test_fix.i
+
+# target to preprocess a source file
+tests/test_fix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/tests/test_fix.cpp.i
+.PHONY : tests/test_fix.cpp.i
+
+tests/test_fix.s: tests/test_fix.cpp.s
+.PHONY : tests/test_fix.s
+
+# target to generate assembly for a file
+tests/test_fix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/tests/test_fix.cpp.s
+.PHONY : tests/test_fix.cpp.s
+
 tests/test_replay.o: tests/test_replay.cpp.o
 .PHONY : tests/test_replay.o
 
@@ -253,16 +347,26 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... test_fix"
 	@echo "... test_replay"
 	@echo "... src/book.o"
 	@echo "... src/book.i"
 	@echo "... src/book.s"
+	@echo "... src/fix.o"
+	@echo "... src/fix.i"
+	@echo "... src/fix.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/sequencer.o"
 	@echo "... src/sequencer.i"
 	@echo "... src/sequencer.s"
+	@echo "... src/socket.o"
+	@echo "... src/socket.i"
+	@echo "... src/socket.s"
+	@echo "... tests/test_fix.o"
+	@echo "... tests/test_fix.i"
+	@echo "... tests/test_fix.s"
 	@echo "... tests/test_replay.o"
 	@echo "... tests/test_replay.i"
 	@echo "... tests/test_replay.s"

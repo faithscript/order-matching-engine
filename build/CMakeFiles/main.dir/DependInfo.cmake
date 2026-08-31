@@ -9,8 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/faithanyanwu/order-matching-engine/src/book.cpp" "CMakeFiles/main.dir/src/book.cpp.o" "gcc" "CMakeFiles/main.dir/src/book.cpp.o.d"
+  "/Users/faithanyanwu/order-matching-engine/src/fix.cpp" "CMakeFiles/main.dir/src/fix.cpp.o" "gcc" "CMakeFiles/main.dir/src/fix.cpp.o.d"
   "/Users/faithanyanwu/order-matching-engine/src/main.cpp" "CMakeFiles/main.dir/src/main.cpp.o" "gcc" "CMakeFiles/main.dir/src/main.cpp.o.d"
   "/Users/faithanyanwu/order-matching-engine/src/sequencer.cpp" "CMakeFiles/main.dir/src/sequencer.cpp.o" "gcc" "CMakeFiles/main.dir/src/sequencer.cpp.o.d"
+  "/Users/faithanyanwu/order-matching-engine/src/socket.cpp" "CMakeFiles/main.dir/src/socket.cpp.o" "gcc" "CMakeFiles/main.dir/src/socket.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -1,4 +1,5 @@
-#include "fix.hpp"
+#include "../include/engine/fix.hpp"
+
 
 #include <sstream>
 #include <unordered_map>
@@ -33,7 +34,7 @@ static std::string encode_message(const std::string& body) {
     return without_checksum + "10=" + buf + "\x01";
 }
 
-std::variant<NewOrderSingle, OrderCancelRequest, ExecutionReport, Reject> engine::FixParser::parse(const std::string& raw_message) {
+std::variant<NewOrderSingle, OrderCancelRequest, Reject> engine::FixParser::parse(const std::string& raw_message) {
     auto tags = parse_tags(raw_message);
     auto it = tags.find("35");
     if (it == tags.end()) return Reject{"Missing MsgType"};

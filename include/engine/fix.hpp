@@ -33,7 +33,7 @@ struct Reject {
 
 class FixParser {
    public:
-    std::variant<NewOrderSingle, OrderCancelRequest, ExecutionReport, Reject>
+    std::variant<NewOrderSingle, OrderCancelRequest, Reject>
     parse(const std::string& raw_message);
 };
 

@@ -65,7 +65,7 @@ std::vector<Event> Book::on_event(const Event& event)
     return new_events;
 }
 
-std::vector<Event> Book::apply_fix(const std::variant<NewOrderSingle, OrderCancelRequest>& msg) {
+std::vector<Event> Book::apply_fix(const std::variant<NewOrderSingle, OrderCancelRequest, Reject>& msg) {
     std::vector<Event> result;
     std::visit([&](auto&& m) {
         using T = std::decay_t<decltype(m)>;
@@ -81,6 +81,8 @@ std::vector<Event> Book::apply_fix(const std::variant<NewOrderSingle, OrderCance
             result.push_back(ev);
             auto more = on_event(ev);
             result.insert(result.end(), more.begin(), more.end());
+        } else if constexpr (std::is_same_v<T, Reject>) {
+            // Reject messages are not turned into engine events
         }
     }, msg);
     return result;
