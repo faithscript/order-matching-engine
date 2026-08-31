@@ -108,14 +108,14 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
  
 ## Architecture
  
-| Layer | Description | Status |
-| --- | --- | --- |
-| 0 — Core | Event-sourced, single-threaded matching engine | Pushed |
-| 1 — FIX Protocol | FIX tag=value connectivity over sockets | Not yet pushed |
-| 2 — Memory & Speed | Low-latency data structures and allocation | Not yet pushed |
-| 3 — Concurrency | Lock-free, multi-threaded pipeline | Not yet pushed |
-| 4 — Market Data | UDP multicast market data distribution | Not yet pushed |
-| Stretch — Recovery | Snapshotting and crash recovery | Not yet pushed |
+| Layer | Description |
+| --- | --- |
+| 0 — Core | Event-sourced, single-threaded matching engine |
+| 1 — FIX Protocol | FIX tag=value connectivity over sockets |
+| 2 — Memory & Speed | Low-latency data structures and allocation |
+| 3 — Concurrency | Lock-free, multi-threaded pipeline |
+| 4 — Market Data | UDP multicast market data distribution |
+| Stretch — Recovery | Snapshotting and crash recovery |
  
 ---
  
