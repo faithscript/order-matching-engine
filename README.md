@@ -18,14 +18,14 @@ An **event‑sourced, single‑threaded matching engine** with **FIX 4.4** con
 
 ## Architecture
 
-| Layer | Description | Status |
-|------|-------------|--------|
-| 0 — Core | Event‑sourced, single‑threaded matching engine | ✅ Pushed |
-| 1 — FIX Protocol | FIX tag‑value connectivity over sockets | ✅ Completed |
-| 2 — Memory & Speed | Intrusive data structures & custom memory pool | ⏳ In progress |
-| 3 — Concurrency | Lock‑free pipelines (LMAX‑Disruptor) | ⏳ Planned |
-| 4 — Market Data | UDP multicast market‑data feed | ⏳ Planned |
-| Stretch — Recovery | Snapshot + log replay, FIX session recovery | ⏳ Planned |
+| Layer | Description |
+| --- | --- |
+| 0 — Core | Event‑sourced, single‑threaded matching engine |
+| 1 — FIX Protocol | FIX tag‑value connectivity over sockets |
+| 2 — Memory & Speed | Intrusive data structures & custom memory pool |
+| 3 — Concurrency | Lock‑free pipelines (LMAX‑Disruptor) |
+| 4 — Market Data | UDP multicast market‑data feed |
+| Stretch — Recovery | Snapshot + log replay, FIX session recovery |
 
 ## What We've Completed
 
@@ -40,7 +40,7 @@ An **event‑sourced, single‑threaded matching engine** with **FIX 4.4** con
 
 ```bash
 # Clone the repo
-git clone https://github.com/<your‑user>/order-matching-engine.git
+git clone https://github.com/faithanyanwu/order-matching-engine.git
 cd order-matching-engine
 
 # Build (requires CMake ≥3.15 and a C++20 compiler)
@@ -99,28 +99,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 ## License
 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
- 
 
- 
+---
 
- 
----
- 
-## Architecture
- 
-| Layer | Description |
-| --- | --- |
-| 0 — Core | Event-sourced, single-threaded matching engine |
-| 1 — FIX Protocol | FIX tag=value connectivity over sockets |
-| 2 — Memory & Speed | Low-latency data structures and allocation |
-| 3 — Concurrency | Lock-free, multi-threaded pipeline |
-| 4 — Market Data | UDP multicast market data distribution |
-| Stretch — Recovery | Snapshotting and crash recovery |
- 
----
- 
 ## Layer 0 — Core
- 
+
 Single-threaded matching engine with an append-only event log (`OrderAdded`, `OrderCancelled`, `OrderModified`, `Trade`) as the source of truth. A sequencer assigns a strict monotonic sequence number to each event. Orders follow a `New → PartiallyFilled → Filled / Cancelled / Rejected` state machine, matched using price-time priority. Book state is derived entirely by replaying the event log, verified by wiping in-memory state and rebuilding it from scratch.
  
 ## Layer 1 — FIX Protocol
